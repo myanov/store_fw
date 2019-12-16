@@ -15,6 +15,7 @@ class App
         self::$app = new Registry();
         $this->getParams();
         new ErrorHandler();
+        Router::dispatch($query);
     }
 
     protected function getParams()

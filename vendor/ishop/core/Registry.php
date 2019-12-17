@@ -8,6 +8,10 @@ class Registry
 {
     use TSingleton;
 
+    private function __construct()
+    {
+    }
+
     protected static $properties;
 
     public function setProperty($key, $value)

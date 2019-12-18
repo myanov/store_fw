@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use ishop\Cache;
+use ishop\Registry;
 
 class MainController extends AppController
 {
@@ -12,16 +13,9 @@ class MainController extends AppController
     public function indexAction()
     {
 //        echo __METHOD__;
-        $posts = \R::findAll('test');
-        $test_arr = ['Ivan', 'Petr'];
-        $cache = Cache::instance();
-        $data = $cache->get('test');
-        if(!$data) {
-            $cache->set('test', $test_arr);
-            $data = $cache->get('test');
-        }
+        $brands = \R::find('brand', 'LIMIT 3');
         $this->setMeta('Main page', 'desc...', 'keywords...');
-        $this->setData(['name' => 'Ivan', 'age' => 30, 'posts' => $posts]);
+        $this->setData(compact('brands'));
     }
 
     public function editPageAction()

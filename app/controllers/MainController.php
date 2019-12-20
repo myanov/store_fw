@@ -14,8 +14,9 @@ class MainController extends AppController
     {
 //        echo __METHOD__;
         $brands = \R::find('brand', 'LIMIT 3');
+        $hits = \R::find('product', "status='1' AND hit='1' LIMIT 8");
         $this->setMeta('Main page', 'desc...', 'keywords...');
-        $this->setData(compact('brands'));
+        $this->setData(compact('brands', 'hits'));
     }
 
     public function editPageAction()

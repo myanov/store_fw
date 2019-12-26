@@ -1671,7 +1671,7 @@ ul.tag-men li {
     font-family: 'BreeSerif-Regular';
 }
 ul.tag-men li span.women1 {
-    margin-left: 9em;
+    margin-left: 2em;
 }
 a.add-cart {
     text-decoration: none;
@@ -3070,4 +3070,19 @@ ul.tag-men {
 
 .product-one > .product-left {
 	margin-bottom: 20px;
+}
+
+.quantity {
+	display: flex;
+	align-items: center;
+	margin-top: 1.5em;
+}
+
+input.quantity_product {
+	padding: 0.4em;
+}
+
+.quantity a {
+	margin-top: 0;
+	margin-left: 1.5em;
 }

@@ -13,13 +13,10 @@ class ProductController extends AppController
         if(!$product) {
             throw new \Exception('Product not found', 404);
         }
-        $this->setMeta($product['title'], $product['description'], $product['keywords']);
-        $this->setData(compact('product'));
-
         //хлебные крошки
 
         //связанные товары
-        
+        $related = \R::getAll("SELECT * FROM related_product JOIN product ON related_product.related_id = product.id WHERE related_product.product_id = ?", [$product->id]);
 
         //запись в куки запрошенного товара
 
@@ -28,5 +25,8 @@ class ProductController extends AppController
         //галлерея
 
         //модификации
+
+        $this->setMeta($product['title'], $product['description'], $product['keywords']);
+        $this->setData(compact('product', 'related'));
     }
 }
